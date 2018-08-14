@@ -1,0 +1,30 @@
+<%- 
+  account_id_key = 'UserId'
+  edition_id_key = 'ProductIds'
+  if @geoipupdate_version and scope.call_function(
+    'versioncmp', [@geoipupdate_version, '2.5.0']) >= 0
+    account_id_key = 'AccountID'
+    edition_id_key = 'EditionIDs'
+  end
+-%>
+<%= account_id_key %> <%= @account_id %>
+LicenseKey <%= @licence_key %>
+<%= edition_id_key %> <%= @edition_ids.join(' ') %>
+<%- if @database_dir -%>
+DatabaseDirectory <%= @database_dir -%>
+<%- end -%>
+<%- if @host -%>
+Host <%= @host -%>
+<%- end -%>
+<%- if @proxy_ip -%>
+Proxy <%= @proxy_ip -%><% if @proxy_port %>:<%= @proxy_port %><% end %>
+<%- end -%>
+<%- if @proxy_username and @proxy_password -%>
+ProxyUserPassword <%= @proxy_username %>:<%= @proxy_password %>
+<%- end -%>
+<%- unless @preserve_file_times == nil -%>
+PreserveFileTimes <%= scope.call_function('bool2num', [@preserve_file_times]) %>
+<%- end -%>
+<%- if @lock_file -%>
+LockFile <%= @lock_file %>
+<%- end -%>

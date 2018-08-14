@@ -1,0 +1,17 @@
+geoip::packages:
+  - libmaxminddb0
+  - geoipupdate
+geoip::config_file: /etc/GeoIP.conf
+geoip::account_id: 0
+geoip::licence_key: '000000000000'
+geoip::edition_ids:
+  - GeoLite2-City
+  - GeoLite2-Country
+geoip::database_dir: ~
+geoip::host: ~
+geoip::proxy_ip: ~
+geoip::proxy_port: ~
+geoip::proxy_username: ~
+geoip::proxy_password: ~
+geoip::preserve_file_times: ~
+geoip::lock_file: ~
