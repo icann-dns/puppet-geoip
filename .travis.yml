@@ -35,7 +35,7 @@ deploy:
   provider: puppetforge
   user: icann
   password:
-    secure: ""
+    secure: "hB1Vx1moPXTHf3ohLK4NLJiEc6wNZuRPJgdjD+IVpsMbgHmzmv1kM4LOHmIhhPvHok9AO8/Z3geUmhndbknpwCUNN/IPzDClz3JIO1ePikBz4MWac8ggMXotlXtkdQTpa1c3phXod/JeRgDnEEr9K+A1mV6DdaD0uzYaUO1G8XuDzBEwszvr171LDk1i1eNsFuHWH6/rRnv+A9Jqm14UKXXmHxk7fzm0tn0G9xZtkWYGuTkWcB7KTlY+6CrYmZpxhWGDXHgjPuV3ugno6jszW4ejJIXRb47pofy7PTtGtOQn9F5oc5Mj/NHu5yP1nwnPpnqdDb55Sqb1c7bI5APWr4ZY1JD9UmN58P8dpZfoGT6cUGskJS9lbJgwXd7QN8a4qK9PMzJZ7PqUdj3Eo/XzxMrg48EpOQWbfaL7eSNyT7Jx83Pf1WWSKTaEEL+YparMr9IAoegq7M3bzvpYnhlgzLHL671VsG73rCM9HRw/eVsCFuqbYQ8XNciA8fqIn8JaMfJCdW/QZPtATnFOY2ThWKF5paF6/g0SovjsfL21pwag6rth9mjBvyDaSK+hCyCSTcWF1VGqc9MWvvHXSwtNJUosd5V3iun7W/i2Eh3Jg/2D2OPDe4Dz2+6mBCmHp3tMmOy5txWuOMNT2cL6d/FnDGy1Ba27irQXb9fFJsOVy+w="
   on:
     tags: true
     all_branches: true
