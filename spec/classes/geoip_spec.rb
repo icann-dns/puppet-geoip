@@ -18,25 +18,25 @@ describe 'geoip' do
         it { is_expected.to contain_package('geoipupdate') }
         it do
           is_expected.to contain_file(
-            '/etc/GeoIP.conf'
+            '/etc/GeoIP.conf',
           ).with_ensure('file').with_content(
-            %r{UserId 0}
+            %r{UserId 0},
           ).with_content(
-            %r{LicenseKey 000000000000}
+            %r{LicenseKey 000000000000},
           ).with_content(
-            %r{ProductIds GeoLite2-City GeoLite2-Country}
+            %r{ProductIds GeoLite2-City GeoLite2-Country},
           ).without_content(
-            %r{DatabaseDirectory}
+            %r{DatabaseDirectory},
           ).without_content(
-            %r{Host}
+            %r{Host},
           ).without_content(
-            %r{Proxy}
+            %r{Proxy},
           ).without_content(
-            %r{ProxyUserPassword}
+            %r{ProxyUserPassword},
           ).without_content(
-            %r{PreserveFileTimes}
+            %r{PreserveFileTimes},
           ).without_content(
-            %r{LockFile}
+            %r{LockFile},
           )
         end
         it do
@@ -54,13 +54,14 @@ describe 'geoip' do
       describe 'Change Defaults' do
         context 'change version number' do
           let(:facts) { facts.merge(geoipupdate_version: '2.5.0') }
+
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{AccountID 0}
+              %r{AccountID 0},
             ).with_content(
-              %r{EditionIDs GeoLite2-City GeoLite2-Country}
+              %r{EditionIDs GeoLite2-City GeoLite2-Country},
             )
           end
         end
@@ -79,9 +80,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{UserId 42}
+              %r{UserId 42},
             )
           end
         end
@@ -90,9 +91,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{LicenseKey 42}
+              %r{LicenseKey 42},
             )
           end
         end
@@ -101,9 +102,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{ProductIds GeoLite2-ASN}
+              %r{ProductIds GeoLite2-ASN},
             )
           end
         end
@@ -112,9 +113,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{DatabaseDirectory DATADIR}
+              %r{DatabaseDirectory DATADIR},
             )
           end
         end
@@ -123,9 +124,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{DatabaseDirectory DATADIR/foo/bar}
+              %r{DatabaseDirectory DATADIR/foo/bar},
             )
           end
         end
@@ -134,9 +135,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{DatabaseDirectory /foo/bar}
+              %r{DatabaseDirectory /foo/bar},
             )
           end
         end
@@ -145,9 +146,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{Host foo.bar}
+              %r{Host foo.bar},
             )
           end
         end
@@ -156,9 +157,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{Proxy 192.0.2.42}
+              %r{Proxy 192.0.2.42},
             )
           end
         end
@@ -167,9 +168,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{Proxy 192.0.2.42:42}
+              %r{Proxy 192.0.2.42:42},
             )
           end
         end
@@ -180,9 +181,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{ProxyUserPassword foobar:foobar}
+              %r{ProxyUserPassword foobar:foobar},
             )
           end
         end
@@ -191,9 +192,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{PreserveFileTimes 1}
+              %r{PreserveFileTimes 1},
             )
           end
         end
@@ -202,9 +203,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{PreserveFileTimes 0}
+              %r{PreserveFileTimes 0},
             )
           end
         end
@@ -213,9 +214,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{LockFile /foo/bar.lock}
+              %r{LockFile /foo/bar.lock},
             )
           end
         end
@@ -224,9 +225,9 @@ describe 'geoip' do
           it { is_expected.to compile }
           it do
             is_expected.to contain_file(
-              '/etc/GeoIP.conf'
+              '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{LockFile DATADIR/foo/bar.lock}
+              %r{LockFile DATADIR/foo/bar.lock},
             )
           end
         end
