@@ -20,11 +20,11 @@ describe 'geoip' do
           is_expected.to contain_file(
             '/etc/GeoIP.conf',
           ).with_ensure('file').with_content(
-            %r{UserId 0},
+            %r{AccountID 0},
           ).with_content(
             %r{LicenseKey 000000000000},
           ).with_content(
-            %r{ProductIds GeoLite2-City GeoLite2-Country},
+            %r{EditionIDs GeoLite2-City GeoLite2-Country},
           ).without_content(
             %r{DatabaseDirectory},
           ).without_content(
@@ -52,19 +52,6 @@ describe 'geoip' do
         end
       end
       describe 'Change Defaults' do
-        context 'change version number' do
-          let(:facts) { facts.merge(geoipupdate_version: '2.5.0') }
-
-          it do
-            is_expected.to contain_file(
-              '/etc/GeoIP.conf',
-            ).with_ensure('file').with_content(
-              %r{AccountID 0},
-            ).with_content(
-              %r{EditionIDs GeoLite2-City GeoLite2-Country},
-            )
-          end
-        end
         context 'packages' do
           before(:each) { params.merge!(packages: ['foobar']) }
           it { is_expected.to compile }
@@ -82,7 +69,7 @@ describe 'geoip' do
             is_expected.to contain_file(
               '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{UserId 42},
+              %r{AccountID 42},
             )
           end
         end
@@ -104,7 +91,7 @@ describe 'geoip' do
             is_expected.to contain_file(
               '/etc/GeoIP.conf',
             ).with_ensure('file').with_content(
-              %r{ProductIds GeoLite2-ASN},
+              %r{EditionIDs GeoLite2-ASN},
             )
           end
         end

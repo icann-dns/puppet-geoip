@@ -1,15 +1,6 @@
-<%- 
-  account_id_key = 'UserId'
-  edition_id_key = 'ProductIds'
-  if @geoipupdate_version and scope.call_function(
-    'versioncmp', [@geoipupdate_version, '2.5.0']) >= 0
-    account_id_key = 'AccountID'
-    edition_id_key = 'EditionIDs'
-  end
--%>
-<%= account_id_key %> <%= @account_id %>
+AccountID <%= @account_id %>
 LicenseKey <%= @licence_key %>
-<%= edition_id_key %> <%= @edition_ids.join(' ') %>
+EditionIDs <%= @edition_ids.join(' ') %>
 <%- if @database_dir -%>
 DatabaseDirectory <%= @database_dir -%>
 <%- end -%>
