@@ -17,6 +17,7 @@
 # @param lock_file
 #   The lock file to use. 
 #   Defaults to ".geoipupdate.lock" under the DatabaseDirectory.
+# @param autoupdate update geoip DB when config file changes
 class geoip (
   Array[String[1]]              $packages,
   Stdlib::Unixpath              $config_file,
@@ -31,6 +32,7 @@ class geoip (
   Optional[String[1]]           $proxy_password,
   Optional[Boolean]             $preserve_file_times,
   Optional[Geoip::Path]         $lock_file,
+  Boolean                       $autoupdate = true,
 ) {
   if ($proxy_username and ! $proxy_password) or
       ( $proxy_password and ! $proxy_username) {
