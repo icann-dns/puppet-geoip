@@ -35,7 +35,7 @@ class geoip (
   Boolean                       $autoupdate = true,
 ) {
   if ($proxy_username and ! $proxy_password) or
-      ( $proxy_password and ! $proxy_username) {
+  ( $proxy_password and ! $proxy_username) {
     fail('you must specify both proxy_username and proxy_password')
   }
   ensure_packages($packages)
@@ -44,11 +44,13 @@ class geoip (
     content => template('geoip/etc/GeoIP.conf.erb'),
     require => Package[$packages],
   }
-  exec {'/usr/bin/geoipupdate':
-    refreshonly => true,
-    subscribe   => File[$config_file],
+  if $autoupdate {
+    exec { '/usr/bin/geoipupdate':
+      refreshonly => true,
+      subscribe   => File[$config_file],
+    }
   }
-  cron {'geoipupdate weekly':
+  cron { 'geoipupdate weekly':
     command => '/usr/bin/geoipupdate',
     minute  => '0',
     hour    => '1',

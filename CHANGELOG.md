@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.1.4
+* actually Make it optional to auto update
+
 ### 0.1.3
 * Make it optional to auto update
 
